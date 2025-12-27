@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build: . # Dockerfile is in the current directory
+    image: my-django-app:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+
+    environment:
+      - DEBUG=1
+      - USE_SQLITE=true
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1[::1]
